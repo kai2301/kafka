@@ -1,0 +1,288 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: https://registerserverteam07.herokuapp.com/eureka
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway:
+            route:
+              RouteDefinitionRouteLocator: INFO
+    root: INFO
+sping:
+  cloud:
+    gateway:
+      routes:
+        uri: https://gatewayteam07.herokuapp.com/
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      default-filters:
+        - DedupeResponseHeader=Access-Control-Allow-Credentials Access-Control-Allow-Origin, RETAIN_UNIQUE
+        - AddResponseHeader=Access-Control-Allow-Origin, *
+      globalcors:
+        cors-configurations:
+          '[/**]':
+            allowed-origins: '*'
+            allowed-methods: '*'
+            allowed-headers: '*'
+            allow-credentials: false
+        add-to-simple-url-handler-mapping: true
+      routes:
+      - id: duan
+        predicates:
+        - Path=/api/view_duan
+        uri: https://duanteam07.herokuapp.com/
+      - id: duan
+        predicates:
+        - Path=/api/post_duan
+        uri: https://duanteam07.herokuapp.com/
+      - id: duan
+        predicates:
+        - Path=/api/get_manager1_of_staff/**
+        uri: https://duanteam07.herokuapp.com/
+      - id: duan
+        predicates:
+        - Path=/api/get_manager2_of_staff/**
+        uri: https://duanteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/request_nghiphep
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/approve_request_nghiphep
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/reject_request_nghiphep
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_np_by_status/**
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_np_by_staff_id/**
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_np_history/**
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/request_wfh
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/approve_request_wfh
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/reject_request_wfh
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_wfh_by_status/**
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_wfh_id/**
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_all_list_request_wfh
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/request_ot
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/accept_ot
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/list_ot_manager
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_ot_nv/**
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/unaccepted_ot
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/approve_ot
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_ot_id/**
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/check_out/**
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/check_in/**
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_checkin_nv/**
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_checkin_all
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_time/**
+        uri: https://requestteam07.herokuapp.com/
+      - id: user
+        predicates:
+        - Path=/api/login
+        uri: https://userteam07.herokuapp.com/
+      - id: user
+        predicates:
+        - Path=/api/create_staff
+        uri: https://userteam07.herokuapp.com/
+      - id: user
+        predicates:
+        - Path=/api/update_profile_staff
+        uri: https://userteam07.herokuapp.com/
+      - id: user
+        predicates:
+        - Path=/api/update_pwd
+        uri: https://userteam07.herokuapp.com/
+      - id: user
+        predicates:
+        - Path=/api/view_staff_by_id/**
+        uri: https://userteam07.herokuapp.com/
+      - id: user
+        predicates:
+        - Path=/api/view_staff_list
+        uri: https://userteam07.herokuapp.com/
+      - id: user
+        predicates:
+        - Path=/api/staff_nghiphep/**
+        uri: https://userteam07.herokuapp.com/
+      - id: user
+        predicates:
+        - Path=/api/update_sophepconlai
+        uri: https://userteam07.herokuapp.com/
+      - id: user
+        predicates:
+        - Path=/api/staff_basemanager
+        uri: https://userteam07.herokuapp.com/
+      - id: user
+        predicates:
+        - Path=/api/get_news/**
+        uri: https://userteam07.herokuapp.com/
+      - id: user
+        predicates:
+        - Path=/api/add_news
+        uri: https://userteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_yctb_by_staff_id/**
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_yctb_by_status/**
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/request_yctb
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/approve_request_yctb
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/reject_request_yctb
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_all_list_request_nghiphep
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_all_list_request_nghiphep_by_status/**
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_all_list_wfh_by_staff_id/**
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_all_list_request_nghiphep_of_staff/**
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_all_list_request_yeucauthietbi_of_staff/**
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_all_list_request_ot_of_staff/**
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_list_project_of_staff_by_id
+        uri: https://duanteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/list_staff_manager1/**
+        uri: https://duanteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/list_ot_manager
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_all_list_nghiphep_of_manager1
+        uri: https://requestteam07.herokuapp.com/  
+      - id: request
+        predicates:
+        - Path=/api/get_all_list_nghiphep_of_manager2
+        uri: https://requestteam07.herokuapp.com/  
+      - id: request
+        predicates:
+        - Path=/api/get_all_list_wfh_of_manager1
+        uri: https://requestteam07.herokuapp.com/  
+      - id: request
+        predicates:
+        - Path=/api/get_director_of_leader/**
+        uri: https://duanteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_teamleader_manage_project_has_status_0/**
+        uri: https://duanteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_teamleader_manage_project_has_status_0/**
+        uri: https://duanteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_all_list_nghiphep_by_role/**
+        uri: https://requestteam07.herokuapp.com/
+      - id: request
+        predicates:
+        - Path=/api/get_all_list_yctb_by_role/**
+        uri: https://requestteam07.herokuapp.com/
+      
+        
+        
+        
+       
+        
+        
+  main:
+    web-application-type: reactive
